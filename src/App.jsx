@@ -7,6 +7,10 @@ import FragmentDemo   from './components/FragmentDemo';
 import TodoInput      from './components/todo/TodoInput';
 import TodoList       from './components/todo/TodoList';
 import TodoFooter     from './components/todo/TodoFooter';
+import RegistrationForm from './components/week3/RegistrationForm';
+import PromoCodeBox from './components/week3/PromoCodeBox';
+import LifecycleDemoClass from './components/week3/LifecycleDemoClass';
+import LifecycleDemoHooks from './components/week3/LifecycleDemoHooks';
 import './App.css';
 
 const users = [
@@ -64,6 +68,10 @@ const App = () => {
 
   const leftCount = todos.filter((todo) => !todo.completed).length;
 
+    // Week 3: Toggle lifecycle demo visibility to test unmount
+  const [showLifecycleClass, setShowLifecycleClass] = useState(true);
+  const [showLifecycleHooks, setShowLifecycleHooks] = useState(true);
+
   return (
     <div className="app">
 
@@ -106,6 +114,47 @@ const App = () => {
             onDelete={handleDeleteTodo}
           />
           <TodoFooter totalCount={todos.length} leftCount={leftCount} />
+        </section>
+        <section className="section week3-section">
+          <h2 className="section-title">📋 Week 3: Forms, Refs, Lifecycle</h2>
+          
+          <div className="week3-content">
+            {/* Registration Form with Validation */}
+            <article className="week3-article">
+              <RegistrationForm />
+            </article>
+
+            {/* Promo Code Box with useRef */}
+            <article className="week3-article">
+              <PromoCodeBox />
+            </article>
+
+            {/* Lifecycle Demo - Class Component */}
+            <article className="week3-article">
+              <div className="lifecycle-section">
+                <button 
+                  onClick={() => setShowLifecycleClass(!showLifecycleClass)}
+                  className="toggle-lifecycle-btn"
+                >
+                  {showLifecycleClass ? '❌ Unmount Class Demo' : '✅ Mount Class Demo'}
+                </button>
+                {showLifecycleClass && <LifecycleDemoClass />}
+              </div>
+            </article>
+
+            {/* Lifecycle Demo - useEffect Hooks */}
+            <article className="week3-article">
+              <div className="lifecycle-section">
+                <button 
+                  onClick={() => setShowLifecycleHooks(!showLifecycleHooks)}
+                  className="toggle-lifecycle-btn"
+                >
+                  {showLifecycleHooks ? '❌ Unmount Hooks Demo' : '✅ Mount Hooks Demo'}
+                </button>
+                {showLifecycleHooks && <LifecycleDemoHooks />}
+              </div>
+            </article>
+          </div>
         </section>
 
       </main>
