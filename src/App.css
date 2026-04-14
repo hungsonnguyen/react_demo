@@ -544,3 +544,126 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+/* Week 4: Basic Hooks */
+.week4-app {
+  min-height: 100vh;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.week4-app[data-theme='light'] {
+  background-color: #f3f7fb;
+  color: #1f2937;
+}
+
+.week4-app[data-theme='dark'] {
+  background-color: #111827;
+  color: #f3f4f6;
+}
+
+.week4-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.week4-header p {
+  margin-top: 0.35rem;
+  opacity: 0.95;
+}
+
+.theme-toggle-btn {
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 999px;
+  padding: 0.55rem 1rem;
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.theme-toggle-btn:hover {
+  background: rgba(255, 255, 255, 0.26);
+}
+
+.week4-main {
+  padding-bottom: 1rem;
+}
+
+.week4-section[data-theme='dark'] {
+  background: #1f2937;
+  border: 1px solid #374151;
+}
+
+.week4-search-label {
+  display: block;
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.week4-search-input {
+  width: 100%;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  padding: 0.7rem 0.85rem;
+  font-size: 0.96rem;
+}
+
+.week4-search-input:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.week4-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 0.85rem;
+}
+
+.week4-user-card {
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  background: #f8fafc;
+  padding: 0.9rem;
+}
+
+.week4-list[data-theme='dark'] .week4-user-card {
+  border-color: #4b5563;
+  background: #111827;
+}
+
+.week4-user-card h3 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.week4-user-card p {
+  font-size: 0.88rem;
+  margin: 0.2rem 0;
+  line-height: 1.4;
+  opacity: 0.95;
+}
+
+.week4-state {
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  background: #f8fafc;
+  padding: 0.7rem 0.9rem;
+  font-size: 0.92rem;
+}
+
+.week4-state-error {
+  border-color: #fecaca;
+  background: #fef2f2;
+  color: #b91c1c;
+}
+
+@media (max-width: 640px) {
+  .week4-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
